@@ -54,10 +54,9 @@ const home: Home = {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4"></strong>{" "}
-        <Line background="brand-alpha-strong" vert height="20" />
+        <strong className="ml-4">Featured</strong>{" "}
         <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+          Work
         </Text>
       </Row>
     ),
