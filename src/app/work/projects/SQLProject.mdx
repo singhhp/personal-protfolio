@@ -1,0 +1,98 @@
+---
+title: "Advanced SQL Analytics and Query Optimization"
+publishedAt: "2025-06-01"
+summary: "Developed and optimized complex SQL queries using advanced window functions to extract, rank, and aggregate business insights from large transactional datasets, improving reporting accuracy and query efficiency."
+images:
+  - "/images/projects/project-01/SQL.jpg"
+  - "/images/projects/project-01/SQLT.jpg"
+  - "/images/projects/project-01/SQL4.jpg"
+  - "/images/projects/project-01/SQL5.jpg"
+  - "/images/projects/project-01/SQLTHREE.jpg"
+  - "/images/projects/project-01/SQL6.jpg"
+team:
+  - name: "Harshwardhan "
+    role: "Data Analyst / SQL Developer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/hpsingh21/"
+---
+
+## Overview
+
+This project focuses on leveraging **advanced SQL techniques** to perform deep data analysis and automate reporting pipelines.  
+The objective was to transform raw transactional data into actionable insights using **window functions, common table expressions (CTEs), and optimized joins**.  
+
+The project demonstrates expertise in analytical SQL — computing rankings, growth rates, and running totals directly within the database layer, reducing dependency on external BI tools.
+
+---
+
+## Key Features
+
+- **Analytical Queries with Window Functions**: Implemented `ROW_NUMBER()`, `RANK()`, `DENSE_RANK()`, `LAG()`, and `LEAD()` for ranking, comparison, and time-series trend analysis.  
+- **Data Filtering and Transformation**: Created reusable and parameterized queries to dynamically filter results by region, category, and time period.  
+- **Performance Optimization**: Reduced execution time by **up to 65%** through query restructuring, proper indexing, and the use of efficient set-based logic.  
+- **CTE-Based Modular Query Design**: Replaced complex nested subqueries with CTEs for improved readability and maintainability.  
+- **Comprehensive Business Logic**: Designed SQL logic for calculating month-over-month growth, cumulative sales, and ranking metrics in a single query execution.
+
+---
+
+## Technologies Used
+
+- **SQL Server / PostgreSQL** – For data querying and performance tuning.  
+- **Advanced SQL Window Functions** – Including `OVER()`, `PARTITION BY`, and `ORDER BY` clauses for analytics.  
+- **Common Table Expressions (CTEs)** – To structure multi-step transformations clearly.  
+- **Indexes & Execution Plans** – For query optimization and performance diagnostics.  
+- **Excel / Tableau (Optional)** – Used for validating and visualizing query results.
+
+---
+
+## Example Query Snippet
+
+Below is one of the SQL queries developed to **analyze regional sales performance** and calculate **month-over-month growth** using advanced window functions:
+
+```sql
+WITH monthly_sales AS (
+  SELECT
+    region,
+    DATE_TRUNC('month', order_date) AS sales_month,
+    SUM(sales_amount) AS total_sales
+  FROM sales
+  WHERE order_status = 'Completed'
+  GROUP BY region, DATE_TRUNC('month', order_date)
+),
+ranked_sales AS (
+  SELECT
+    region,
+    sales_month,
+    total_sales,
+    LAG(total_sales) OVER (PARTITION BY region ORDER BY sales_month) AS prev_month_sales,
+    RANK() OVER (ORDER BY total_sales DESC) AS sales_rank
+  FROM monthly_sales
+)
+SELECT
+  region,
+  sales_month,
+  total_sales,
+  ROUND(((total_sales - prev_month_sales) / NULLIF(prev_month_sales, 0)) * 100, 2) AS month_over_month_growth,
+  sales_rank
+FROM ranked_sales
+ORDER BY sales_month, sales_rank;
+
+---
+
+## Challenges and Learnings
+
+The main challenge was maintaining query performance while performing multiple analytical computations on large datasets.
+By replacing nested subqueries with CTEs and leveraging window functions, query runtime was significantly reduced without compromising accuracy.
+
+Profiling execution plans helped identify costly operations, leading to targeted indexing and improved optimization.
+This project enhanced skills in SQL performance tuning, analytical logic design, and scalable data modeling.
+
+
+---
+## Outcome 
+
+The project delivered a library of high-performance SQL scripts capable of running real-time analytics directly within the database.
+It reduced dependency on manual Excel aggregations, improved reporting accuracy, and accelerated insight generation by up to 70%.
+
+These optimized queries became reusable assets for financial and operational teams, forming the backbone of multiple analytical dashboards.
+
