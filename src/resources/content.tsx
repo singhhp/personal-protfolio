@@ -99,17 +99,18 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "Bussiness Facilitating",
-        timeframe: "Oct 2024 - Jan 2025",
-        role: "Junior Data Analyst",
+        company: "Eve Healthcare Centre",
+        timeframe: "Oct 2024 - Present",
+        role: "Data Analyst",
         achievements: [
-          <>
-        Achieved an 8% reduction in overall logistics costs by analyzing FedEx, UPS, and DHL invoice variances using SQL and Python, identifying high-cost zones and optimizing rate structures.
-          </>,
-          <>
-Developed interactive Power BI dashboards that visualized zone-wise cost trends and carrier performance, enabling data-driven negotiations and strategic decision-making.
-          </>,
-        ],
+  <>
+    Achieved an 8% reduction in overall operational costs by analyzing diagnostic booking, partner billing, and service-level variances using SQL and Python, identifying high-cost diagnostic centers, locations, and test categories, and supporting data-driven optimization decisions.
+  </>,
+  <>
+    Developed interactive Power BI dashboards visualizing center-wise performance, turnaround times, and revenue trends, enabling leadership to drive data-backed partner negotiations, pricing strategies, and marketplace optimization.
+  </>,
+]
+,
       },
       {
         company: "NCR Voyix",
