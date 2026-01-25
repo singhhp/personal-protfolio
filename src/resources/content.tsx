@@ -99,17 +99,18 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "Eve Healthcare Centre",
+        company: "Graphnile Global Services",
         timeframe: "Oct 2024 - Present",
-        role: "Data Analyst",
+        role: "Junior Data Analyst",
         achievements: [
   <>
-    Achieved an 8% reduction in overall operational costs by analyzing diagnostic booking, partner billing, and service-level variances using SQL and Python, identifying high-cost diagnostic centers, locations, and test categories, and supporting data-driven optimization decisions.
+    Reduced operational costs by 8% through SQL & Python analysis of diagnostic bookings, partner billing, and SLA variances.
   </>,
   <>
-    Developed interactive Power BI dashboards visualizing center-wise performance, turnaround times, and revenue trends, enabling leadership to drive data-backed partner negotiations, pricing strategies, and marketplace optimization.
+    Designed Power BI dashboards for performance, TAT, and revenue insights to enable data-driven pricing and partner decisions.
   </>,
 ]
+
 ,
       },
       {
